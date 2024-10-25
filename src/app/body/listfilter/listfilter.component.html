@@ -1,0 +1,236 @@
+<!-- Breadcumb Section Start -->
+<div class="breadcrumb-wrapper" style="padding: 0px 0 !important">
+    <!-- <div class="book1">
+        <img src="assets/img/hero/book1.png" alt="book">
+    </div> -->
+    <!-- <div class="book2">
+        <img src="assets/img/hero/book2.png" alt="book">
+    </div> -->
+    <div class="container">
+        <div class="page-heading">
+            <h1>
+                {{ nombreCategoria }}</h1>
+            <div class="page-header">
+                <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
+                    <li>
+                        <a [routerLink]="['/home']">
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </li>
+                    <li>
+                        {{ dtltipo === 'NuevosTitulos' ? 'Listado de Nuevos Títulos' : 'Listado Libros' }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Shop Section Start -->
+<section class="shop-section fix section-padding" style="padding-top: 0px;">
+    <div class="container">
+        <div class="shop-default-wrapper">
+            <div class="row">
+
+                <div class="col-xl-3 col-lg-4 order-2 order-md-1 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="main-sidebar">
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title">
+                                <h5>Búsqueda</h5>
+                            </div>
+                            <form action="#" class="search-toggle-box">
+                                <div class="input-area search-container">
+                                    <input class="search-input" type="text" [(ngModel)]="txtsearchtitulo"
+                                        style="outline: black;color: black;">
+                                    <button class="cmn-btn search-icon" (click)="busquedaTitulo()">
+                                        <i class="far fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--Idiomas-->
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title">
+                                <h5>Idiomas</h5>
+                            </div>
+                            <div class="product-status">
+                                <div class="product-status_stock  gap-6 d-flex align-items-center">
+                                    <div class="nice-select category">
+                                        <select name="cate" class="category" [(ngModel)]="txtcatidioma"
+                                            (change)="VoidListadoProducto()">
+                                            <option value="español" selected>
+                                                Español
+                                            </option>
+                                            <option value="portugues">
+                                                Portugués
+                                            </option>
+                                            <option value="ingles">
+                                                Inglés
+                                            </option>
+                                            <option value="frances">
+                                                Francés
+                                            </option>
+                                            <option value="italiano">
+                                                Italiano
+                                            </option>
+                                            <option value="aleman">
+                                                Alemán
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--Clasificacion IBIC-->
+                        <div class="single-sidebar-widget" d-none d-lg-block>
+                            <div class="wid-title" >
+                                <h5>Clasificación</h5>
+                            </div>
+                            <div class="categories-list">
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation" *ngFor="let categoria of categorias">
+                                        <button class="nav-link"
+                                            [ngClass]="{'active': dtltipo === categoria.codigo_ibic}"
+                                            (click)="listadocategoria(categoria.codigo_ibic,categoria.nombre_clasificacion)">
+                                            {{ categoria.nombre_clasificacion}}
+                                        </button>
+                                        <!--
+                                        <button class="nav-link"
+                                            [ngClass]="{'active': dtltipo === categoria.codigo_ibic}"
+                                            id="pills-{{ categoria.codigo_ibic }}-tab" data-bs-toggle="pill"
+                                            [attr.data-bs-target]="'#pills-' + categoria.codigo_ibic" type="button"
+                                            role="tab" [attr.aria-controls]="'pills-' + categoria.codigo_ibic"
+                                            [attr.aria-selected]="dtltipo === categoria.codigo_ibic"
+                                            [routerLink]="['/listfilter', categoria.codigo_ibic,categoria.nombre_clasificacion,txtcatidioma]"
+                                            (click)="onCategoriaClick(categoria)">
+                                            {{ categoria.nombre_clasificacion }}
+                                        </button>
+                                        -->
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+<!-- BUSCADOR EN CELULARES -->
+
+                <div class="single-sidebar-widget d-block d-lg-none">
+                  <div class="wid-title">
+                      <h5>Búsqueda Título Libro</h5>
+                  </div>
+                  <form action="#" class="search-toggle-box">
+                      <div class="input-area search-container">
+                          <input class="search-input" type="text" [(ngModel)]="txtsearchtitulo"
+                              style="outline: black;color: black;">
+                          <button class="cmn-btn search-icon" (click)="busquedaTitulo()">
+                              <i class="far fa-search"></i>
+                          </button>
+                      </div>
+                  </form>
+              </div>
+
+
+    <!-- PRODUCTO MENU HOME -->
+
+                <div class="col-xl-9 col-lg-8 order-1 order-md-2">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-6" *ngFor="let item of lstProducto">
+                                <div class="shop-box-items">
+                                    <div class="book-thumb center">
+                                        <a [routerLink]="['/detail-book', item.id]"><img src="{{item.imagen_tapa}}"
+                                                alt="img"></a>
+                                        <ul class="post-box">
+                                            <li *ngIf="item.promocion === 'diaria'">Nuevo Titulo</li>
+                                            <!-- <li *ngIf="item.tipo_notificacion">-{{item.discount}}%</li> -->
+
+
+                                        </ul>
+                                        <ul class="shop-icon d-grid justify-content-center align-items-center">
+                                            <li>
+                                                <a href="shop-cart.html"><i class="far fa-heart"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-cart.html">
+                                                    <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-details.html"><i class="far fa-eye"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <p class="detalle">Autor: {{item.autor}}</p>
+                                        <h3 class="title-three-lines"><a href="shop-details.html">{{item.titulo}}</a>
+                                        </h3>
+                                        <p class="isbn">ISBN-13: {{item.isbn13}}</p>
+                                        <p class="isbn">IBIC: {{item.clasificacion}}</p>
+                                        <p class="detalle">Idioma: {{item.idioma_edicion}}</p>
+                                        <p class="detalle">Promoción: {{item.promocion}}</p>
+                                        <ul class="price-list">
+                                            <li>S./ {{item.pvp}}</li>
+
+
+                                            <li
+                                                [ngClass]="{'disponible': item.tipo_notificacion === 'A', 'no-disponible': item.tipo_notificacion === 'B'}">
+                                                {{ item.tipo_notificacion === 'A' ? 'Título Disponible' : 'No Disponible'
+                                                }}
+                                            </li>
+
+                                            <!-- <li>
+                                                <i class="fa-solid fa-star"></i>
+                                                3.4 (25)
+                                            </li> -->
+
+                                        </ul>
+
+                                        <ul>
+                                          <li
+                                          [ngClass]="{'printdemand': item.formato === 'P', 'no-printdemand': item.formato === 'S'}">
+                                          {{ item.formato === 'P' ? 'Entrega: 10 días' : 'Título no disponible'
+                                          }}
+                                          </li>
+                                        </ul>
+
+
+
+
+
+                                        <div class="shop-button">
+                                            <a href="shop-details.html" class="theme-btn"><i
+                                                    class="fa-solid fa-basket-shopping"></i> Agregar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="page-nav-wrap text-center pagination">
+                        <ul>
+                            <li>
+                                <button class="previous" (click)="previousPage()"
+                                    [disabled]="currentPage === 1">Anterior</button>
+                            </li>
+                            <li>
+                                <span>Página {{ currentPage }} de {{ totalPages }}</span>
+                            </li>
+                            <li>
+                                <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,279 @@
+<!-- Hero Section start  -->
+<!-- <div class="hero-section hero-1 fix d-none d-lg-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-xl-8 col-lg-6">
+        <div class="hero-items">
+          <div class="book-shape">
+            <img src="assets/img/hero/book/book.jpg" alt="shape-img">
+          </div>
+          <div class="frame-shape1 float-bob-x">
+            <img src="assets/img/hero/frame.png" alt="shape-img">
+          </div>
+          <div class="frame-shape2 float-bob-y">
+            <img src="assets/img/hero/frame-2.png" alt="shape-img">
+          </div>
+          <div class="frame-shape3">
+            <img src="assets/img/hero/xstar.png" alt="img">
+          </div>
+          <div class="frame-shape4 float-bob-x">
+            <img src="assets/img/hero/frame-shape.png" alt="img">
+          </div>
+          <div class="bg-shape1">
+            <img src="assets/img/hero/bg-shape.png" alt="img">
+          </div>
+          <div class="bg-shape2">
+            <img src="assets/img/hero/bg-shape2.png" alt="shape-img">
+          </div>
+          <div class="hero-content">
+            <h6 class="wow fadeInUp" data-wow-delay=".3s">10% Descuento</h6>
+            <h1 class="wow fadeInUp" data-wow-delay=".5s">Compra tu libro<br> Con los mejores precios
+            </h1>
+            <div class="form-clt wow fadeInUp" data-wow-delay=".9s">
+              <button type="submit" class="theme-btn">
+                Compra ahora <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12 col-xl-4 col-lg-6">
+        <div class="girl-image">
+          <img class=" float-bob-x" src="assets/img/hero/hero-girl/hero-girl.jpg" alt="img">
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- SECCION QUE MUESTRA UN BANNER A LA IZQUIERDA -->
+<!-- <section class="shop-section section-padding fix">
+  <div class="container">
+    <div class="book-shop-wrapper">
+      <div class="cta-shop-box">
+        <h2 class="wow fadeInUp" data-wow-delay=".2s">
+            Find Your Nest
+            Books!
+        </h2>
+        <h6 class="wow fadeInUp" data-wow-delay=".4s">And get your 25% discount now!</h6>
+        <a href="shop.html" class="theme-btn white-bg wow fadeInUp" data-wow-delay=".6s">Shop Now <i
+                class="fa-solid fa-arrow-right-long"></i></a>
+        <div class="girl-shape">
+            <img src="assets/img/girl-shape.png" alt="shape-img">
+        </div>
+        <div class="circle-shape">
+            <img src="assets/img/circle-shape.png" alt="shape-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+<!-- Banner de inicio Mayoristas -->
+<section class="cta-banner-section fix section-padding pt-0">
+  <div class="container">
+      <div class="cta-banner-wrapper section-padding bg-cover"
+          style="background-image: url('assets/img/cta-banner.jpg');">
+          <div class="book-shape">
+              <img src="assets/img/hero/book-shape/book-shape.jpg" alt="shape-img">
+          </div>
+          <div class="girl-shape float-bob-x">
+              <img src="assets/img/hero/girl-shape-2/girl-shape-2.jpg" alt="shape-img">
+          </div>
+          <div class="cta-content text-center">
+              <h2 class="mb-40 wow fadeInUp" data-wow-delay=".3s"
+                  style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">Get 25% discount
+                  in all <br> kind of
+                  super Selling</h2>
+              <a href="shop.html" class="theme-btn wow fadeInUp" data-wow-delay=".5s"
+                  style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">Shop Now <i
+                      class="fa-solid fa-arrow-right-long"></i></a>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Shop Section start  -->
+<!-- API 1 - Shop Section start -->
+<section class="shop-section section-padding fix pt-0">
+  <div class="container" style="padding-top: 20px;">
+    <div class="section-title-area">
+      <div class="section-title">
+        <h2>Nuevos Títulos</h2>
+      </div>
+      <button class="theme-btn transparent-btn"
+        [routerLink]="['/listfilter', 'NuevosTitulos', 'Nuevos Títulos',txtcatidioma]">
+        {{ 'Descubra más' }} <i class="fa-solid fa-arrow-right-long"></i>
+      </button>
+    </div>
+    <div class="book-shop-wrapper">
+      <div class="shop-box-items style-2" *ngFor="let product of (showMore ? products : products | slice:0:5)">
+        <div class="book-thumb center">
+          <a [routerLink]="['/detail-book', product.id]" routerLinkActive="active" ariaCurrentWhenActive="page">
+            <img [src]="product.imagen_tapa" alt="{{ product.titulo }}">
+          </a>
+          <ul class="post-box">
+            <li *ngIf="product.promocion === 'diaria'">Nuevo Titulo</li>
+            <!-- <li *ngIf="item.tipo_notificacion">-{{item.discount}}%</li> -->
+
+
+          </ul>
+          <ul class="shop-icon d-grid justify-content-center align-items-center">
+            <li>
+              <a><i class="far fa-heart"></i></a>
+            </li>
+            <li>
+              <a>
+                <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
+              </a>
+            </li>
+            <li>
+              <a><i class="far fa-eye"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="shop-content">
+          <h5 class="detalle">{{ product.autor }}</h5>
+          <h3 class="title-three-lines">
+            <a [routerLink]="['/detail-book', product.id]" routerLinkActive="active" ariaCurrentWhenActive="page">{{
+              product.titulo }}</a>
+          </h3>
+
+          <p class="isbn">ISBN-13: {{product.isbn13}}</p>
+          <p class="isbn">IBIC: {{product.clasificacion}}</p>
+          <p class="detalle">Idioma: {{product.idioma_edicion}}</p>
+          <p class="detalle">Promoción: {{product.promocion}}</p>
+
+          <ul class="price-list">
+            <li>S/. {{ product.pvp }}</li>
+
+
+
+            <li
+              [ngClass]="{'disponible': product.tipo_notificacion === 'A', 'no-disponible': product.tipo_notificacion === 'B'}">
+              {{ product.tipo_notificacion === 'A' ? ' Título Disponible' : 'No Disponible'
+              }}
+              </li>
+
+          </ul>
+
+          <ul>
+            <li
+            [ngClass]="{'printdemand': product.formato === 'P', 'no-printdemand': product.formato === 'S'}">
+            {{ product.formato === 'P' ? 'Entrega: 10 días' : 'Título no disponible'
+            }}
+            </li>
+          </ul>
+
+
+          <!-- <ul class="author-post">
+                        <li class="authot-list">
+                            <span class="content">{{product.pais_edicion}}</span>
+                            <span class="content">{{ product.editor }}</span>
+                        </li>
+                        <li class="star">
+                        </li>
+                    </ul> -->
+        </div>
+        <div class="shop-button">
+          <a [routerLink]="['/wishlist']" class="theme-btn"><i class="fa-solid fa-basket-shopping"></i>
+            Agregar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Book  CATEGORIAS  -->
+<div *ngFor="let category of categories">
+  <section class="shop-section section-padding fix pt-0">
+    <div class="container">
+      <div class="section-title-area">
+        <div class="section-title">
+          <h2>{{ category.nombre_clasificacion }}</h2>
+        </div>
+        <button class="theme-btn transparent-btn"
+          [routerLink]="['/listfilter', category.codigo_ibic, category.nombre_clasificacion,category.idioma]">
+          {{ 'Descubra más' }} <i class="fa-solid fa-arrow-right-long"></i>
+        </button>
+      </div>
+      <div class="book-shop-wrapper">
+        <div *ngFor="let product of category.productos" class="shop-box-items style-2">
+          <div class="book-thumb center">
+            <a [routerLink]="['/detail-book', product.id]" routerLinkActive="active" ariaCurrentWhenActive="page">
+              <img [src]="product.imagen_tapa" alt="{{ product.titulo }}">
+            </a>
+            <ul class="shop-icon d-grid justify-content-center align-items-center">
+              <li>
+                <a><i class="far fa-heart"></i></a>
+              </li>
+              <li>
+                <a>
+                  <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
+                </a>
+              </li>
+              <li>
+                <a><i class="far fa-eye"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="shop-content">
+            <h5>{{ product.autor }}</h5>
+            <h3 class="title-three-lines">
+              <a [routerLink]="['/detail-book', product.id]" routerLinkActive="active" ariaCurrentWhenActive="page">{{
+                product.titulo }}</a>
+            </h3>
+
+            <p class="isbn">ISBN-13: {{product.isbn13}}</p>
+            <p class="isbn">IBIC: {{product.clasificacion}}</p>
+            <p class="detalle">Idioma: {{product.idioma_edicion}}</p>
+            <p class="detalle">Promoción: {{product.promocion}}</p>
+
+            <ul class="price-list">
+              <li>S/. {{ product.pvp }}</li>
+
+              <li
+              [ngClass]="{'disponible': product.tipo_notificacion === 'A', 'no-disponible': product.tipo_notificacion === 'B'}">
+              {{ product.tipo_notificacion === 'A' ? 'Título Disponible' : 'No Disponible'
+              }}
+              </li>
+            </ul>
+            <ul>
+              <li
+              [ngClass]="{'printdemand': product.formato === 'P', 'no-printdemand': product.formato === 'S'}">
+              {{ product.tipo_notificacion === 'A' ? 'Entrega: 10 días' : 'Título no disponible'
+              }}
+              </li>
+            </ul>
+
+
+            <ul class="author-post">
+              <!-- <li class="authot-list">
+                <span class="content">{{ product.pais_edicion }}</span>
+                <span class="content">{{ product.editor }}</span>
+              </li> -->
+              <li class="star">
+              </li>
+            </ul>
+          </div>
+          <div class="shop-button">
+            <a [routerLink]="['/wishlist']" class="theme-btn"><i class="fa-solid fa-basket-shopping"></i> Comprar </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+

@@ -1,0 +1,25 @@
+
+
+.book-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor sin distorsión */
+  border-radius: 5px; /* Añade bordes redondeados si deseas */
+  /* Puedes ajustar otras propiedades como margen o sombra aquí */
+}
+
+
+.book-shop-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shop-box-items {
+  flex: 1 1 25%; /* Ajusta el ancho para mostrar 4 elementos por fila */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.hidden {
+  display: none;
+}
