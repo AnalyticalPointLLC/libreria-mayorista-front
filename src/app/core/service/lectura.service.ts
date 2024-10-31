@@ -17,6 +17,9 @@ export class LecturaService {
 
   private PrefixFilterClasificacionIdioma = '/bmg_books/classifications/prefix';
 
+  private sendEmailContactoMayorista = '/bmg_books/send_email';
+
+
   private nombreCategoriaSource = new BehaviorSubject<string>(''); // Valor inicial
   currentNombreCategoria = this.nombreCategoriaSource.asObservable();
 
@@ -108,5 +111,19 @@ export class LecturaService {
         '&offset=' +
         currentPage
     );
+  }
+
+
+  postSendEmailContactMayorista(
+    emailData:
+    { dni_ruc: string;
+      name: string;
+      email: string;
+      message: string }
+    ): Observable<any> {
+    return this.http.post(
+      this.baseUrl +
+      this.sendEmailContactoMayorista,
+      emailData);
   }
 }

@@ -9,7 +9,7 @@ import { ListfilterComponent } from './body/listfilter/listfilter.component';
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'wishlist', component: WishlistComponent },
+  { path: 'wishlist', component: HomeComponent },
   { path: 'detail-book/:id', component: DetailbookComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'listfilter/:ibic/:nombreCategoria/:idioma', component: ListfilterComponent },

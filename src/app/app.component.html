@@ -122,7 +122,7 @@
                               <i class="fal fa-map-marker-alt"></i>
                           </div>
                           <div class="offcanvas__contact-text">
-                              <a target="_blank" href="index.html">Av. Club Golf Los Inkas, Santiago de Surco Lima, Perú</a>
+                              <a target="_blank" [routerLink]="['/contact']">Av. Club Golf Los Inkas, Santiago de Surco Lima, Perú</a>
                           </div>
                       </li>
                       <li class="d-flex align-items-center">
@@ -130,7 +130,7 @@
                               <i class="fal fa-envelope"></i>
                           </div>
                           <div class="offcanvas__contact-text">
-                              <a href="mailto:ventas@mho.digital">ventas.digital</a>
+                              <a [routerLink]="['/contact']">ventas&#64;mho.digital</a>
                           </div>
                       </li>
                       <li class="d-flex align-items-center">
@@ -138,7 +138,7 @@
                               <i class="fal fa-clock"></i>
                           </div>
                           <div class="offcanvas__contact-text">
-                              <a target="_blank" href="index.html">Ventas Online 24 hrs</a>
+                              <a target="_blank" [routerLink]="['/contact']">Ventas Online 24 hrs</a>
                           </div>
                       </li>
                       <li class="d-flex align-items-center">
@@ -146,12 +146,12 @@
                               <i class="far fa-phone"></i>
                           </div>
                           <div class="offcanvas__contact-text">
-                              <a href="tel:+51906681820">+51 - 906 681 820</a>
+                              <a href="https://wa.me/5190668182">+51 - 906 681 820</a>
                           </div>
                       </li>
                   </ul>
                   <div class="header-button mt-4">
-                      <a href="contact.html" class="theme-btn text-center">
+                      <a [routerLink]="['/contact']" class="theme-btn text-center">
                           Compra Online <i class="fa-solid fa-arrow-right-long"></i>
                       </a>
                   </div>
@@ -183,20 +183,22 @@
             <ul class="contact-list">
                 <li>
                     <i class="fab fa-whatsapp"></i>
-                    <a href="https://wa.me51906681820">+51 - 906 681 820</a>
+                    <a href="https://wa.me/51906681820">+51 - 906 681 820</a>
                 </li>
                 <li>
                     <i class="far fa-envelope"></i>
-                    <a href="mailto:info&#64;example.com">ventas&#64;mho.digital</a>
+                    <a [routerLink]="['/contact']">ventas&#64;mho.digital</a>
                 </li>
                 <li>
                     <i class="far fa-user-clock"></i>
-                    <span>Ventas Online 24 hrs</span>
+                    <a [routerLink]="['/contact']">
+                        Ventas Online 24 hrs
+                      </a>
                 </li>
 
             </ul>
             <ul class="list">
-                <li><i class="fab fa-whatsapp"></i><a href="contact.html">Chat</a></li>
+                <li><i class="fab fa-whatsapp"></i><a [routerLink]="['/contact']">Chat</a></li>
                 <li><i class="fa-light fa-user"></i>
                     <button data-bs-toggle="modal" data-bs-target="#loginModal">
                         Login
@@ -1151,8 +1153,9 @@
 
 
 
+
 <!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -1212,10 +1215,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Registration Modal -->
-<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
+<!-- <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -1277,7 +1280,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
 
 
 <router-outlet></router-outlet>
@@ -1293,7 +1298,7 @@
                 <div class="content">
                     <p>Contacto 24 hrs</p>
                     <h3>
-                        <a href="https://wa.me51906681820">+51 - 906 681 820</a>
+                        <a href="https://wa.me/51906681820">+51 - 906 681 820</a>
                     </h3>
                 </div>
             </div>
@@ -1304,7 +1309,7 @@
                 <div class="content">
                     <p>Pedir cotización</p>
                     <h3>
-                        <a href="mailto:ventas@mho.digital">ventas&#64;mho.digital</a>
+                        <a [routerLink]="['/contact']">ventas&#64;mho.digital</a>
                     </h3>
                 </div>
             </div>
@@ -1317,6 +1322,7 @@
                     <h3>
                         24 hrs.
                     </h3>
+
                 </div>
             </div>
             <div class="contact-info-items wow fadeInUp" data-wow-delay=".8s">
@@ -1340,12 +1346,14 @@
                 </p>
                 <ul class="brand-logo wow fadeInRight" data-wow-delay=".5s">
                     <li>
-                        <a href="contact.html">
+                        <a
+                            [routerLink]="['/contact']">
                             <img src="assets/img/visa-logo.png" alt="img">
                         </a>
                     </li>
                     <li>
-                        <a href="contact.html">
+                        <a
+                            [routerLink]="['/contact']">
                             <img src="assets/img/mastercard.png" alt="img">
                         </a>
                     </li>

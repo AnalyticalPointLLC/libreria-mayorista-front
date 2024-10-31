@@ -1,28 +1,28 @@
 
 
   <!-- Breadcumb Section Start -->
-  <div class="breadcrumb-wrapper">
+  <div class="breadcrumb-wrapper" style="padding: 0px 0 !important">
       <div class="book1">
-          <img src="assets/img/hero/book1.png" alt="book">
+          <!-- <img src="assets/img/hero/book1.png" alt="book">
       </div>
       <div class="book2">
           <img src="assets/img/hero/book2.png" alt="book">
-      </div>
+      </div> -->
       <div class="container">
           <div class="page-heading">
-              <h1>Contact Us</h1>
+              <h1>Contáctanos</h1>
               <div class="page-header">
                   <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
                       <li>
                           <a href="index.html">
-                              Home
+                              Inicio
                           </a>
                       </li>
                       <li>
                           <i class="fa-solid fa-chevron-right"></i>
                       </li>
                       <li>
-                          Contact Us
+                          Contáctanos
                       </li>
                   </ul>
               </div>
@@ -43,9 +43,9 @@
                                       <i class="icon-icon-10"></i>
                                   </div>
                                   <div class="content">
-                                      <p>Call Us 7/24</p>
+                                      <p>Whatsapp 24 hrs.</p>
                                       <h3>
-                                          <a href="tel:+2085550112">+208-555-0112</a>
+                                          <a href="https://wa.me/51906681820">+51 - 906 681 820</a>
                                       </h3>
                                   </div>
                               </div>
@@ -54,9 +54,9 @@
                                       <i class="icon-icon-11"></i>
                                   </div>
                                   <div class="content">
-                                      <p>Make a Quote</p>
+                                      <p>Solicite cotización</p>
                                       <h3>
-                                          <a href="mailto:example@gmail.com">example&#64;gmail.com</a>
+                                          <a>ventas&#64;mho.digital</a>
                                       </h3>
                                   </div>
                               </div>
@@ -65,14 +65,14 @@
                                       <i class="icon-icon-12"></i>
                                   </div>
                                   <div class="content">
-                                      <p>Location</p>
+                                      <p>Nuestra Dirección</p>
                                       <h3>
-                                          4517 Washington ave.
+                                        Av. Club Golf Los Inkas, Santiago de Surco Lima, Perú.
                                       </h3>
                                   </div>
                               </div>
                           </div>
-                          <div class="video-image">
+                          <!-- <div class="video-image">
                               <img src="assets/img/contact.jpg" alt="img">
                               <div class="video-box">
                                   <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I"
@@ -80,45 +80,85 @@
                                       <i class="fa-solid fa-play"></i>
                                   </a>
                               </div>
-                          </div>
+                          </div> -->
                       </div>
                   </div>
                   <div class="col-lg-8">
                       <div class="contact-content">
-                          <h2>Ready to Get Started?</h2>
+                          <h2>Bienvenida a Nuestra Librería Mayorista</h2>
                           <p>
-                              Nunc tincidunt cursus lectus ac semper. Aenean ullamcorper quis arcu molestie consequat.
-                              Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut nec lobortis elit, eu
-                              ultrices justo. Fusce auctor erat est, non fringilla nibh tempus quis. Aenean dignissim
+                            ¡Bienvenidos a la Librería Mayorista de MHO DIGITAL EIRL, su aliado confiable en el mundo literario! Como una empresa legalmente constituida en Perú, con RUC 20612507784, operamos desde Lima para ofrecerle un servicio profesional y seguro. Nos especializamos en la distribución de libros con registro ISBN-13, asegurando autenticidad y calidad. Disfrute de entregas rápidas en un máximo de 10 días hábiles, con envío sin costo.
                           </p>
-                          <form action="contact.php" id="contact-form" method="POST" class="contact-form-items">
+                          <br>
+
+
+                            <!-- Mensajes de Éxito/Error -->
+
+                            <div *ngIf="mensajeExito" class="alert alert-success">
+                              {{ mensajeExito }}
+                            </div>
+                            <div *ngIf="mensajeError" class="alert alert-danger">
+                              {{ mensajeError }}
+                            </div>
+                            <br>
+
+                            <h3>Solicita cotización</h3>
+                            <br>
+
+
+
+                            <!-- Formulario de Contacto -->
+
+                          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contact-form" class="contact-form-items">
                               <div class="row g-4">
                                   <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                       <div class="form-clt">
-                                          <span>Your name*</span>
-                                          <input type="text" name="name" id="name" placeholder="Your Name">
+                                          <span>Nombre completo o Razón Social</span>
+                                          <input type="text" formControlName="name" placeholder="Su nombre completo o razón social">
                                       </div>
                                   </div>
+                                  <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                                    <div class="form-clt">
+                                        <span>RUC / DNI / CE</span>
+                                        <input type="text" formControlName="dni_ruc" id="dni_ruc" placeholder="RUC/DNI/CE">
+                                    </div>
+                                </div>
                                   <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                                       <div class="form-clt">
-                                          <span>Your Email*</span>
-                                          <input type="text" name="email" id="email123" placeholder="Your Email">
+                                          <span>Email</span>
+                                          <input type="text" formControlName="email" placeholder="Su Email">
                                       </div>
                                   </div>
                                   <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s">
                                       <div class="form-clt">
-                                          <span>Write Message*</span>
-                                          <textarea name="message" id="message"
-                                              placeholder="Write Message"></textarea>
+                                          <span>Mensaje</span>
+                                          <textarea formControlName="message"
+                                              placeholder="Escriba mensaje"></textarea>
                                       </div>
                                   </div>
                                   <div class="col-lg-7 wow fadeInUp" data-wow-delay=".9s">
                                       <button type="submit" class="theme-btn">
-                                          Send Message <i class="fa-solid fa-arrow-right-long"></i>
+                                          Enviar mensaje <i class="fa-solid fa-arrow-right-long"></i>
                                       </button>
                                   </div>
                               </div>
                           </form>
+                          <br>
+                          <br>
+
+                          <h3>Pasos para proceder con el registro de Cliente y proceder con la compra</h3>
+                          <br>
+
+                            <ol>
+                              <li>Selección de Libros: Explore nuestro catálogo y elija los títulos que impulsen su negocio. Para calificar como cliente mayorista, realice una compra mínima de 10 libros de cualquiera de nuestras opciones disponibles.</li>
+                              <li>Documentación: Envíe una copia de su DNI o RUC para establecer su perfil comercial y garantizar nuestra relación de negocios.</li>
+                              <li>Información de Contacto: Detalle su persona de contacto proporcionando nombre, correo electrónico, número de teléfono y dirección para facilitar la comunicación y entrega.</li>
+                              <li>Logística de Envío: Para clientes en provincias, indíquenos su agencia de transporte preferida para asegurar una entrega eficiente y segura en su localidad.</li>
+
+                            </ol>
+                            <p>
+                              Al suscribirse y enviar sus datos, será considerado cliente mayorista y comenzará a recibir ofertas exclusivas y precios competitivos, diseñados para potenciar su negocio de venta de libros. Estamos comprometidos a proporcionarle un servicio de excelencia que catalice su crecimiento comercial. ¡Esperamos con interés trabajar juntos!
+                            </p>
                       </div>
                   </div>
               </div>
@@ -127,7 +167,7 @@
   </section>
 
   <!--<< Map Section Start >>-->
-  <div class="map-section">
+  <!-- <div class="map-section">
       <div class="map-items">
           <div class="googpemap">
               <iframe
@@ -135,5 +175,5 @@
                   style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
       </div>
-  </div>
+  </div> -->
 

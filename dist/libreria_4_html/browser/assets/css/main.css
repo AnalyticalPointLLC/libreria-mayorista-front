@@ -8383,4 +8383,14 @@ ul > li:hover .submenu {
 }
 
 
+.alert-success {
+  color: green;
+  margin-top: 10px;
+}
+
+.alert-danger {
+  color: red;
+  margin-top: 10px;
+}
+
 
